@@ -1,0 +1,6 @@
+.vs/*
+.vscode/*
+src/DependencyInjection.InConsole/bin/*
+src/DependencyInjection.InConsole/obj/*
+test/DependencyInjection.InConsole.Test/bin/*
+test/DependencyInjection.InConsole.Test/obj/*
