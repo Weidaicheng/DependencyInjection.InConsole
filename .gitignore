@@ -2,7 +2,7 @@
 .vscode/*
 src/DependencyInjection.InConsole/bin/*
 src/DependencyInjection.InConsole/obj/*
-test/DependencyInjection.InConsole.Test/bin/*
-test/DependencyInjection.InConsole.Test/obj/*
+test/DependencyInjection.InConsole.Tests/bin/*
+test/DependencyInjection.InConsole.Tests/obj/*
 example/DependencyInjection.InConsole.Example/bin/*
 example/DependencyInjection.InConsole.Example/obj/*
