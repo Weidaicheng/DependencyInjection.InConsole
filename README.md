@@ -8,7 +8,7 @@ DependencyInjection.InConsole allows you to use dependency injection in .net cor
 
 #### Installation
 
-[Nuget]: https://www.nuget.org/packages/DependencyInjection.InConsole/
+[Nuget package](https://www.nuget.org/packages/DependencyInjection.InConsole/)
 
 #### Basic use
 
@@ -42,7 +42,7 @@ Console.WriteLine(configuration["foo"]);
 
 You can check the example code in 
 
-[example]: https://github.com/Weidaicheng/DependencyInjection.InConsole/tree/master/example/DependencyInjection.InConsole.Example
+[example](https://github.com/Weidaicheng/DependencyInjection.InConsole/tree/master/example/DependencyInjection.InConsole.Example)
 
 #### Cooperation
 
