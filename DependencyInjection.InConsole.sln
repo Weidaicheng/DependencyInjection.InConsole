@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.InConso
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BEECB6E9-89E2-4FAC-8D39-D7346A2707C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.InConsole.Test", "test\DependencyInjection.InConsole.Test\DependencyInjection.InConsole.Test.csproj", "{4836EAC3-36AB-4C9C-8FDD-2E8DB68795E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.InConsole.Tests", "test\DependencyInjection.InConsole.Tests\DependencyInjection.InConsole.Tests.csproj", "{4836EAC3-36AB-4C9C-8FDD-2E8DB68795E9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{677DFBD8-2405-417A-A172-954FCBD2598F}"
 EndProject
