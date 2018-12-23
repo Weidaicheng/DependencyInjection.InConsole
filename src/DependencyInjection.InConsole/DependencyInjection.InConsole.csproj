@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Weidaicheng</Authors>
+    <Version>1.0.0-preview</Version>
+    <Description>Using dependency injection in .Net core console app</Description>
+    <Copyright>Copyright (c) 2018 Weidaicheng</Copyright>
+    <PackageLicenseUrl>https://github.com/Weidaicheng/DependencyInjection.InConsole/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Weidaicheng/DependencyInjection.InConsole</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Weidaicheng/DependencyInjection.InConsole</RepositoryUrl>
+    <PackageReleaseNotes>v1.0 preview release</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\DependencyInjection.InConsole.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
