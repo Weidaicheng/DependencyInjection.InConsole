@@ -23,13 +23,21 @@ public class ExampleInjector : Injector
 }
 ```
 
-And add the follow codes at the first line in `Main` method:
+For .net core 1.0 or 1.1, add the follow codes at the first line in `Main` method:
 
 ```c#
 var provider = Startup.ConfigureServices();
 // or, if you don't need a provider
 Startup.ConfigureServices();
 ```
+
+But for .net core 2.2, you can choose using Hooks, so there's nothing need to be added into `Main` method, but if you need to use `provider`, you can get one by this:
+
+```c#
+var provider = Singletons.Provider;
+```
+
+You need to add an environment variable, name as `DOTNET_STARTUP_HOOKS`, and key as the absolute path of `DependencyInjection.InConsole.dll`, for example `C:\DependencyInjection.InConsole.dll`.
 
 That's it, now you can use the type that you just injected.
 
@@ -43,6 +51,8 @@ Console.WriteLine(configuration["foo"]);
 You can check the example code in 
 
 [example](https://github.com/Weidaicheng/DependencyInjection.InConsole/tree/master/example/DependencyInjection.InConsole.Example)
+
+One thing needs to remember, DO NOT USE `Singletons.Provider` in .net core 2.2 app if you don't use Hooks to inject, or it would throw an exception.
 
 #### Cooperation
 
