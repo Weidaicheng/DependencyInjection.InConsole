@@ -23,7 +23,7 @@ public class ExampleInjector : Injector
 }
 ```
 
-For .net core 1.0 or 1.1, add the follow codes at the first line in `Main` method:
+For .net core 2.0 or 2.1, add the follow codes at the first line in `Main` method:
 
 ```c#
 var provider = Startup.ConfigureServices();
