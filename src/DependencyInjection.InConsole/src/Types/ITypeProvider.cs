@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace DependencyInjection.InConsole.Types
 {
+    /// <summary>
+    /// <see cref="ITypeProvider" />
+    /// </summary>
     public interface ITypeProvider
     {
         /// <summary>
