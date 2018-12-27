@@ -10,8 +10,8 @@ namespace DependencyInjection.InConsole.Example
     {
         static void Main(string[] args)
         {
-            // var provider = Startup.ConfigureServices();
-            var provider = Singletons.Provider;
+            var provider = Startup.ConfigureServices();
+            // var provider = Singletons.Provider; // for .net core 2.2 hooks
 
             var configuration = provider.GetRequiredService<IConfiguration>();
             Console.WriteLine(configuration["foo"]);

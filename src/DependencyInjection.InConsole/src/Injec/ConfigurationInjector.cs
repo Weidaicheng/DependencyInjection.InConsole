@@ -6,7 +6,7 @@ namespace DependencyInjection.InConsole.Injec
     /// <summary>
     /// <see cref="ConfigurationInjector" />
     /// </summary>
-    public class ConfigurationInjector : Injector
+    public sealed class ConfigurationInjector : Injector
     {
         public override void Inject()
         {
