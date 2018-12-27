@@ -10,13 +10,20 @@ using DependencyInjection.InConsole.Injec;
 
 namespace DependencyInjection.InConsole
 {
+    /// <summary>
+    /// Entry point
+    /// </summary>
     public static class Startup
     {
+        /// <summary>
+        /// Inject types
+        /// </summary>
+        /// <returns>Returns <see cref="IServiceProvider" /></returns>
         public static IServiceProvider ConfigureServices()
         {
             ITypeProvider typeProvider = new TypeProvider();
             var creator = new InstanceCreator();
-            foreach(var t in creator.GetInjectorImpTypes(typeProvider))
+            foreach (var t in creator.GetInjectorImpTypes(typeProvider))
             {
                 var injector = creator.GetInstance(t);
                 injector.Inject();

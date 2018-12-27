@@ -65,7 +65,7 @@ namespace DependencyInjection.InConsole.Creations
                 }
                 return _provider;
             }
-            set
+            internal set
             {
                 if(_providerSet)
                 {

@@ -5,15 +5,24 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace DependencyInjection.InConsole.Injec
 {
+    /// <summary>
+    /// Abstract class contains an abstract Inject method and a final Build method
+    /// </summary>
     public abstract class Injector
     {
-        protected IServiceCollection services = Singletons.Services;
-        protected IConfiguration configuration = Singletons.Configuration;
+        /// <summary>
+        /// A readonly instance of <see cref="IServiceCollection" />
+        /// </summary>
+        protected IServiceCollection services { get; } = Singletons.Services;
+
+        /// <summary>
+        /// A readonly instance of <see cref="IConfiguration" />
+        /// </summary>
+        protected IConfiguration configuration { get; } = Singletons.Configuration;
 
         /// <summary>
         /// Inject dependencies
         /// </summary>
-        /// <param name="message">Exception message</param>
         public abstract void Inject();
 
         /// <summary>
