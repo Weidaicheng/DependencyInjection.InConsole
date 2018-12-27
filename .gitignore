@@ -6,3 +6,5 @@ test/DependencyInjection.InConsole.Tests/bin/*
 test/DependencyInjection.InConsole.Tests/obj/*
 example/DependencyInjection.InConsole.Example/bin/*
 example/DependencyInjection.InConsole.Example/obj/*
+example/DependencyInjection.InConsole.Example.Autofac/bin/*
+example/DependencyInjection.InConsole.Example.Autofac/obj/*
