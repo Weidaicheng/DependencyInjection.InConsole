@@ -11,7 +11,22 @@ namespace DependencyInjection.InConsole.Test
     public class AutofacInjectorAdapterTest
     {
         [Test]
-        public void Inject_MultiImplications_ThrowsException()
+        public void getAutofacInjector_NoImplications_ReturnsFalse()
+        {
+            var stubTypeProvider = Substitute.For<ITypeProvider>();
+            stubTypeProvider.GetTypes().Returns(new List<Type>()
+            {
+            });
+
+            var adapter = new AutofacInjectorAdapter();
+            adapter._typeProvider = stubTypeProvider;
+
+            var result = adapter.getAutofacInjector(out AutofacInjector injector);
+            Assert.False(result);
+        }
+
+        [Test]
+        public void getAutofacInjector_MultiImplications_ThrowsException()
         {
             var stubTypeProvider = Substitute.For<ITypeProvider>();
             stubTypeProvider.GetTypes().Returns(new List<Type>()
@@ -25,8 +40,24 @@ namespace DependencyInjection.InConsole.Test
 
             Assert.Catch<MultiAutofacInjectorImplicationsException>(() =>
             {
-                adapter.Inject();
+                adapter.getAutofacInjector(out AutofacInjector injector);
             }, $"There are more than one implication of {nameof(AutofacInjector)}");
+        }
+
+        [Test]
+        public void getAutofacInjector_OneImplication_ReturnsTrue()
+        {
+            var stubTypeProvider = Substitute.For<ITypeProvider>();
+            stubTypeProvider.GetTypes().Returns(new List<Type>()
+            {
+                Substitute.For<AutofacInjector>().GetType()
+            });
+
+            var adapter = new AutofacInjectorAdapter();
+            adapter._typeProvider = stubTypeProvider;
+
+            var result = adapter.getAutofacInjector(out AutofacInjector injector);
+            Assert.True(result);
         }
     }
 }

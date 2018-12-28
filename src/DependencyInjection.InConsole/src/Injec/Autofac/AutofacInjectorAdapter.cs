@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using DependencyInjection.InConsole.Exceptions;
@@ -30,7 +31,12 @@ namespace DependencyInjection.InConsole.Injec.Autofac
         /// <param name="injector">Value will be null, if there isn't one</param>
         /// <returns>If there's an instance, will return true, otherwise false</returns>
         /// </summary>
+        #if DEBUG
+        // just for the unit test
+        public bool getAutofacInjector(out AutofacInjector injector)
+        #else
         private bool getAutofacInjector(out AutofacInjector injector)
+        #endif
         {
             // get types
             var types = _typeProvider.GetTypes();
@@ -65,21 +71,22 @@ namespace DependencyInjection.InConsole.Injec.Autofac
                 var provider = autofacInjector.Inject();
                 var types = _typeProvider.GetTypes(); // FIXME: improve the speed of get the types, maybe a cache is needed?
 
-                Parallel.ForEach(types, type =>
+                Parallel.ForEach(types, new ParallelOptions() {MaxDegreeOfParallelism = Environment.ProcessorCount }, type =>
                 {
+                    object obj = null;
                     try
                     {
                         // get registered
-                        var obj = provider.GetService(type);
-                        // if registered
-                        if (obj != null)
-                        {
-                            // register by Transient
-                            services.AddTransient(type, p => obj);
-                        }
+                        obj = provider.GetService(type);
                     }
-                    catch (System.InvalidOperationException)
+                    catch (System.InvalidOperationException) // FIXME: find a way that don't use a try-catch block.
                     { }
+                    
+                    if (obj != null) // if registered
+                    {
+                        // register by Transient
+                        services.AddTransient(type, p => obj);
+                    }
                 });
             }
         }
