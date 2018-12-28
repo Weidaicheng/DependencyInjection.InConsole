@@ -3,14 +3,14 @@
 
 DependencyInjection.InConsole allows you to use dependency injection in .net core app.
 
-#### Supported platforms
+### Supported platforms
 - .Net core 2.0+
 
-#### Installation
+### Installation
 
 [Nuget package](https://www.nuget.org/packages/DependencyInjection.InConsole/)
 
-#### Basic use
+### Basic use
 
 ```c#
 // extends a class from Injector, and override it's Inject method to do inject
@@ -54,7 +54,7 @@ You can check the example code in
 
 One thing needs to remember, DO NOT USE `Singletons.Provider` in .net core 2.2 app if you don't use Hooks to inject, or it would throw an exception.
 
-#### Other DI frameworks
+### Other DI frameworks
 
 **Autofac is supported since [1.2.3-preview](https://www.nuget.org/packages/DependencyInjection.InConsole/1.2.3-preview)🎉🎉🎉.**
 
@@ -67,14 +67,13 @@ You can use Autofac by the following steps.
    ```c#
    public class ExampleInjector : AutofacInjector
    {
-   	public override IServiceProvider Inject()
+       public override IServiceProvider Inject()
        {
-       	// Create the container builder.
+           // Create the container builder.
            var builder = new ContainerBuilder();
-   		// register your service
-   		// ...
+           // register your service
+           // ...
            var container = builder.Build();
-           return new AutofacServiceProvider(container);
        }
    }
    ```
@@ -86,11 +85,12 @@ You can use Autofac by the following steps.
    - It's different from extending class from Injector, you can only provide one class that extends from AutofacInjector.
    - I strongly recommend that DO NOT use `builder.Populate(services);` in the Autofac register, actually you can't do that, because I don't provide one `services` for you to use😋.
 
-#### TODO
+### TODO
 
 - Other DI frameworks support
 - Performance optimization
+- Property injection *(Actually, I'm not sure if I should add this or not*😥*. This can be more convenient to get instance instead of using a provider to resole manually. But property injection is not a good action, because it may hide the references.)*
 
-#### Cooperation
+### Cooperation
 
 Please feel free to open an issue or pull request, if you have any problem or new thoughts.
