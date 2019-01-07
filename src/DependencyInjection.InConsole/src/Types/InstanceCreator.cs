@@ -10,7 +10,7 @@ namespace DependencyInjection.InConsole.Types
     /// <see cref="InstanceCreator{T}"/>
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class InstanceCreator<T>
+    public class InstanceCreator<T> where T : Injector
     {
         /// <summary>
         /// Get types which implicit <see cref="T" />

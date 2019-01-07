@@ -16,7 +16,7 @@ namespace DependencyInjection.InConsole
         /// <param name="inject">specific injection operation</param>
         /// <typeparam name="T">generic or non-generic <see cref="Injector"/></typeparam>
         /// <returns></returns>
-        private static IServiceProvider configureServices<T>(Action<T> inject)
+        private static IServiceProvider configureServices<T>(Action<T> inject) where T : Injector
         {
             ITypeProvider typeProvider = new TypeProvider();
             var creator = new InstanceCreator<T>();
