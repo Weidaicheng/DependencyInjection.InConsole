@@ -3,7 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace DependencyInjection.InConsole.Injec
 {
-    public class ConfigurationInjector : Injector
+    /// <summary>
+    /// <see cref="ConfigurationInjector" />
+    /// </summary>
+    public sealed class ConfigurationInjector : Injector
     {
         public override void Inject()
         {

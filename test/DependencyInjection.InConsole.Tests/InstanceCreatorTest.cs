@@ -26,7 +26,7 @@ namespace DependencyInjection.InConsole.Test
                 typeof(InstanceCreatorTest)
             });
 
-            var creator = new InstanceCreator();
+            var creator = new InstanceCreator<Injector>();
             
             Assert.Catch<NonImplicationException>(() =>
             {
@@ -43,7 +43,7 @@ namespace DependencyInjection.InConsole.Test
                 typeof(Injector_1)
             });
 
-            var creator = new InstanceCreator();
+            var creator = new InstanceCreator<Injector>();
             var result = creator.GetInjectorImpTypes(stubTypeProvider);
 
             Assert.NotZero(result.Count());
@@ -54,7 +54,7 @@ namespace DependencyInjection.InConsole.Test
         [Test]
         public void GetInstance_Injector_1_ReturnsInjector_1()
         {
-            var creator = new InstanceCreator();
+            var creator = new InstanceCreator<Injector>();
             var result = creator.GetInstance(typeof(Injector_1));
 
             Assert.IsTrue(result is Injector_1);
