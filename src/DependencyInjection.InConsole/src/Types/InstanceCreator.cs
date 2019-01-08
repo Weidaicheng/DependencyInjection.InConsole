@@ -23,7 +23,7 @@ namespace DependencyInjection.InConsole.Types
             var implications = types.Where(t => !t.IsAbstract && typeof(T).IsAssignableFrom(t));
 
             #region verify implication
-            if (implications.Count() == 0)
+            if (!implications.Any())
             {
                 throw new NonImplicationException($"Can't find one implication of {typeof(T).Name}.");
             }
