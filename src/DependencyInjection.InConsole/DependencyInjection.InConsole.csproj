@@ -10,8 +10,8 @@
     <PackageLicenseUrl>https://github.com/Weidaicheng/DependencyInjection.InConsole/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Weidaicheng/DependencyInjection.InConsole</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Weidaicheng/DependencyInjection.InConsole</RepositoryUrl>
-    <PackageReleaseNotes>Support parameters in injection, for both basic usage and Autofac</PackageReleaseNotes>
-    <PackageVersion>1.3.2-preview</PackageVersion>
+    <PackageReleaseNotes>Support parameters in injection, for both basic usage and Autofac, fix bugs</PackageReleaseNotes>
+    <PackageVersion>1.3.3-preview</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
