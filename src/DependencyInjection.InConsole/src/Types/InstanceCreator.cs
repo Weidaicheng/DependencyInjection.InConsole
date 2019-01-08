@@ -36,7 +36,20 @@ namespace DependencyInjection.InConsole.Types
         /// Get an instance of <see cref="T" />
         /// </summary>
         /// <param name="injectorType">Type info</param>
-        /// <returns>Returns <see cref="T" /></returns>
-        public T GetInstance(Type injectorType) => (T)injectorType.Assembly.CreateInstance(injectorType.FullName);
+        /// <param name="instance"></param>
+        /// <returns>if get instance success</returns>
+        public bool GetInstance(Type injectorType, out T instance)
+        {
+            try
+            {
+                instance = (T) injectorType.Assembly.CreateInstance(injectorType.FullName);
+                return true;
+            }
+            catch
+            {
+                instance = null;
+                return false;
+            }
+        }
     }
 }

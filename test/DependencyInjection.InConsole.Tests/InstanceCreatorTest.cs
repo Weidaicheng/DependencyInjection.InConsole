@@ -55,7 +55,7 @@ namespace DependencyInjection.InConsole.Test
         public void GetInstance_Injector_1_ReturnsInjector_1()
         {
             var creator = new InstanceCreator<Injector>();
-            var result = creator.GetInstance(typeof(Injector_1));
+            creator.GetInstance(typeof(Injector_1), out var result);
 
             Assert.IsTrue(result is Injector_1);
         }

@@ -22,13 +22,13 @@ namespace DependencyInjection.InConsole
             var creator = new InstanceCreator<T>();
             foreach (var type in creator.GetInjectorImpTypes(typeProvider))
             {
-                var injector = creator.GetInstance(type);
-                inject(injector);
+                if (creator.GetInstance(type, out var injector))
+                    inject(injector);
             }
 
             return Injector.Build();
         }
-        
+
         /// <summary>
         /// Inject types
         /// </summary>
