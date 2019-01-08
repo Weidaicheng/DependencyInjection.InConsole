@@ -6,7 +6,7 @@
 
 ### Injection with parameters
 
-Since [1.3.2-preview](https://www.nuget.org/packages/DependencyInjection.InConsole/1.3.2-preview), you can inject with parameters, instead of using a non parameter injection method.
+Since [1.3.3-preview](https://www.nuget.org/packages/DependencyInjection.InConsole/1.3.3-preview), you can inject with parameters, instead of using a non parameter injection method.
 
 One thing needs to know, .net core 2.2 hooks is **NOT supported** for this feature, because the parameters can not be passed through hooks.
 
