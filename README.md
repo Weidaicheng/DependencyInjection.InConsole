@@ -50,9 +50,13 @@ Console.WriteLine(configuration["foo"]);
 
 You can check the example code in 
 
-[example](https://github.com/Weidaicheng/DependencyInjection.InConsole/tree/master/example/DependencyInjection.InConsole.Example)
+[example](https://github.com/Weidaicheng/DependencyInjection.InConsole/tree/master/example/)
 
-One thing needs to remember, DO NOT USE `Singletons.Provider` in .net core 2.2 app if you don't use Hooks to inject, or it would throw an exception.
+One thing needs to remember, **DO NOT** USE `Singletons.Provider` in .net core 2.2 app if you don't use Hooks to inject, or it would throw an exception.
+
+### Want something more
+
+If you want something more, please check it out from [Advance Features](AdvanceFeatures.md).
 
 ### Other DI frameworks
 
@@ -88,9 +92,11 @@ You can use Autofac by the following steps.
 ### TODO
 
 - Other DI frameworks support
+  - <del>Autofac</del>
+  - ...
+- Property injection
 - Performance optimization
-- Property injection *(Actually, I'm not sure if I should add this or not*😥*. This can be more convenient to get instance instead of using a provider to resole manually. But property injection is not a good action, because it may hide the references.)*
 
 ### Cooperation
 
-Please feel free to open an issue or pull request, if you have any problem or new thoughts.
+Please feel free to open an issue or PR, if you have any problem or new thoughts.
