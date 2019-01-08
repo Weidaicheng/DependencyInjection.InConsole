@@ -34,7 +34,7 @@ For **basic injection**, follow the steps below.
 
    Using the one parameter version of `ConfigureServices` if your injector is extended from one type parameter `Injector`, there are 6 different `Injector`s and 6 different `ConfigureServices`s.
 
-   |           `Injector`           |                   `ConfigurationServices`                    |
+   |           `Injector`           |                     `ConfigureServices`                      |
    | :----------------------------: | :----------------------------------------------------------: |
    |           `Injector`           |                    `ConfigureServices()`                     |
    |         `Injector<T>`          |                 `ConfigureServices<T>(T t)`                  |
