@@ -1,6 +1,6 @@
 #### Sections
 
-- [Injection with parameters](#Injection with parameters)
+- [Injection with parameters](#injection-with-parameters)
 
 
 
