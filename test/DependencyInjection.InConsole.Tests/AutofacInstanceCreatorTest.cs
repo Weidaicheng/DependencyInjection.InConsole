@@ -8,7 +8,7 @@ using NUnit.Framework;
 
 namespace DependencyInjection.InConsole.Test
 {
-    public class AutofacInjectorAdapterTest
+    public class AutofacInstanceCreatorTest
     {
         [Test]
         public void getAutofacInjector_NoImplications_ReturnsFalse()
@@ -18,10 +18,9 @@ namespace DependencyInjection.InConsole.Test
             {
             });
 
-            var adapter = new AutofacInjectorAdapter();
-            adapter._typeProvider = stubTypeProvider;
+            var creator = new AutofacInstanceCreator<AutofacInjector>();
 
-            var result = adapter.getAutofacInjector(out AutofacInjector injector);
+            var result = creator.GetInjectorImpTypes(stubTypeProvider, out AutofacInjector injector);
             Assert.False(result);
         }
 
@@ -35,12 +34,11 @@ namespace DependencyInjection.InConsole.Test
                 Substitute.For<AutofacInjector>().GetType()
             });
 
-            var adapter = new AutofacInjectorAdapter();
-            adapter._typeProvider = stubTypeProvider;
+            var creator = new AutofacInstanceCreator<AutofacInjector>();
 
             Assert.Catch<MultiAutofacInjectorImplicationsException>(() =>
             {
-                adapter.getAutofacInjector(out AutofacInjector injector);
+                creator.GetInjectorImpTypes(stubTypeProvider, out AutofacInjector injector);
             }, $"There are more than one implication of {nameof(AutofacInjector)}");
         }
 
@@ -53,10 +51,9 @@ namespace DependencyInjection.InConsole.Test
                 Substitute.For<AutofacInjector>().GetType()
             });
 
-            var adapter = new AutofacInjectorAdapter();
-            adapter._typeProvider = stubTypeProvider;
+            var creator = new AutofacInstanceCreator<AutofacInjector>();
 
-            var result = adapter.getAutofacInjector(out AutofacInjector injector);
+            var result = creator.GetInjectorImpTypes(stubTypeProvider, out AutofacInjector injector);
             Assert.True(result);
         }
     }
