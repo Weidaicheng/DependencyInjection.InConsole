@@ -13,14 +13,14 @@ namespace DependencyInjection.InConsole.Types
         /// <summary>
         /// Get an instance of <see cref="T"/>
         /// </summary>
-        /// <param name="typeProvider"></param>
+        /// <param name="typeFactory"></param>
         /// <param name="instance">the instance of <see cref="T"/></param>
         /// <returns>if successful got an instance</returns>
         /// <exception cref="MultiAutofacInjectorImplicationsException">Only one implication is allowed</exception>
-        public bool GetInjectorImpTypes(ITypeProvider typeProvider, out T instance)
+        public bool GetInjectorImpTypes(TypeFactory typeFactory, out T instance)
         {
             // get types
-            var types = typeProvider.GetTypes();
+            var types = typeFactory.GetTypes();
             // get implications of T
             var implications = types.Where(t => !t.IsAbstract && typeof(T).IsAssignableFrom(t));
 

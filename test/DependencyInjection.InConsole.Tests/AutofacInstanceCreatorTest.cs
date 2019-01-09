@@ -17,10 +17,12 @@ namespace DependencyInjection.InConsole.Test
             stubTypeProvider.GetTypes().Returns(new List<Type>()
             {
             });
+            var typeFactory = new TypeFactory();
+            typeFactory._typeProvider = stubTypeProvider;
 
             var creator = new AutofacInstanceCreator<AutofacInjector>();
 
-            var result = creator.GetInjectorImpTypes(stubTypeProvider, out AutofacInjector injector);
+            var result = creator.GetInjectorImpTypes(typeFactory, out AutofacInjector injector);
             Assert.False(result);
         }
 
@@ -33,12 +35,14 @@ namespace DependencyInjection.InConsole.Test
                 Substitute.For<AutofacInjector>().GetType(),
                 Substitute.For<AutofacInjector>().GetType()
             });
+            var typeFactory = new TypeFactory();
+            typeFactory._typeProvider = stubTypeProvider;
 
             var creator = new AutofacInstanceCreator<AutofacInjector>();
 
             Assert.Catch<MultiAutofacInjectorImplicationsException>(() =>
             {
-                creator.GetInjectorImpTypes(stubTypeProvider, out AutofacInjector injector);
+                creator.GetInjectorImpTypes(typeFactory, out AutofacInjector injector);
             }, $"There are more than one implication of {nameof(AutofacInjector)}");
         }
 
@@ -50,10 +54,12 @@ namespace DependencyInjection.InConsole.Test
             {
                 Substitute.For<AutofacInjector>().GetType()
             });
+            var typeFactory = new TypeFactory();
+            typeFactory._typeProvider = stubTypeProvider;
 
             var creator = new AutofacInstanceCreator<AutofacInjector>();
 
-            var result = creator.GetInjectorImpTypes(stubTypeProvider, out AutofacInjector injector);
+            var result = creator.GetInjectorImpTypes(typeFactory, out AutofacInjector injector);
             Assert.True(result);
         }
     }
