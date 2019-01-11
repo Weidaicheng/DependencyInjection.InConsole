@@ -18,7 +18,7 @@ namespace DependencyInjection.InConsole.Test
             {
             });
             var typeFactory = new TypeFactory();
-            typeFactory._typeProvider = stubTypeProvider;
+            typeFactory._types = new Lazy<IEnumerable<Type>>((() => stubTypeProvider.GetTypes()));
 
             var creator = new AutofacInstanceCreator<AutofacInjector>();
 
@@ -36,7 +36,7 @@ namespace DependencyInjection.InConsole.Test
                 Substitute.For<AutofacInjector>().GetType()
             });
             var typeFactory = new TypeFactory();
-            typeFactory._typeProvider = stubTypeProvider;
+            typeFactory._types = new Lazy<IEnumerable<Type>>((() => stubTypeProvider.GetTypes()));
 
             var creator = new AutofacInstanceCreator<AutofacInjector>();
 
@@ -55,7 +55,7 @@ namespace DependencyInjection.InConsole.Test
                 Substitute.For<AutofacInjector>().GetType()
             });
             var typeFactory = new TypeFactory();
-            typeFactory._typeProvider = stubTypeProvider;
+            typeFactory._types = new Lazy<IEnumerable<Type>>((() => stubTypeProvider.GetTypes()));
 
             var creator = new AutofacInstanceCreator<AutofacInjector>();
 

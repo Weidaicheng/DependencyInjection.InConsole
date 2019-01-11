@@ -8,21 +8,19 @@ namespace DependencyInjection.InConsole.Types
     /// </summary>
     public class TypeFactory
     {
-        private IEnumerable<Type> _types;
+        
 #if DEBUG
-        public ITypeProvider _typeProvider;
+        public Lazy<IEnumerable<Type>> _types;
 #else
-        private readonly ITypeProvider _typeProvider;
+        private Lazy<IEnumerable<Type>> _types;
 #endif
-        private static readonly object Locker = new object();
 
         /// <summary>
         /// Constructor for <see cref="TypeFactory"/>
         /// </summary>
         public TypeFactory()
         {
-            _types = null;
-            _typeProvider = new TypeProvider();
+            _types = new Lazy<IEnumerable<Type>>((() => new TypeProvider().GetTypes()));
         }
 
         /// <summary>
@@ -31,18 +29,7 @@ namespace DependencyInjection.InConsole.Types
         /// <returns></returns>
         public IEnumerable<Type> GetTypes()
         {
-            if (_types == null)
-            {
-                lock (Locker)
-                {
-                    if (_types == null)
-                    {
-                        _types = _typeProvider.GetTypes();
-                    }
-                }
-            }
-
-            return _types;
+            return _types.Value;
         }
     }
 }
