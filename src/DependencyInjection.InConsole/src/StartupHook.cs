@@ -6,7 +6,7 @@ internal class StartupHook
 {
     public static void Initialize()
     {
-        Singletons.Provider = Startup.ConfigureServices();
+        Startup.ConfigureServices();
     }
 }
 #endif
