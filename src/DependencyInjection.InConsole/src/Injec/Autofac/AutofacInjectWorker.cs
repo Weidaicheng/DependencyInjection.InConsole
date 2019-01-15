@@ -10,18 +10,14 @@ namespace DependencyInjection.InConsole.Injec.Autofac
     /// </summary>
     public class AutofacInjectWorker
     {
-#if DEBUG
-        public ITypeProvider _typeProvider;
-#else
-        private readonly ITypeProvider _typeProvider;
-#endif
+        private readonly TypeFactory _typeFactory;
 
         /// <summary>
         /// Constructor
         /// </summary>
         public AutofacInjectWorker()
         {
-            _typeProvider = new TypeProvider();
+            _typeFactory = new TypeFactory();
         }
 
         /// <summary>
@@ -33,10 +29,10 @@ namespace DependencyInjection.InConsole.Injec.Autofac
         public void Inject<T>(IServiceCollection services, Func<T, IServiceProvider> inject) where T : AutofacInjector
         {
             var creator = new AutofacInstanceCreator<T>();
-            if (!creator.GetInjectorImpTypes(_typeProvider, out var autofacInjector)) return;
+            if (!creator.GetInjectorImpTypes(_typeFactory, out var autofacInjector)) return;
             // get autofac provider
             var provider = inject(autofacInjector);
-            var types = _typeProvider.GetTypes(); // TODO: improve the speed of get the types, maybe a cache is needed?
+            var types = _typeFactory.GetTypes();
 
             Parallel.ForEach(types, new ParallelOptions() {MaxDegreeOfParallelism = Environment.ProcessorCount }, type =>
             {

@@ -14,3 +14,5 @@ example/DependencyInjection.InConsole.Example.Generic/bin/*
 example/DependencyInjection.InConsole.Example.Generic/obj/*
 example/DependencyInjection.InConsole.Example.Autofac.Generic/bin/*
 example/DependencyInjection.InConsole.Example.Autofac.Generic/obj/*
+example/DependencyInjection.InConsole.Example.PropertyInjection/bin/*
+example/DependencyInjection.InConsole.Example.PropertyInjection/obj/*
