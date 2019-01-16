@@ -1,6 +1,7 @@
 #### Sections
 
 - [Injection with parameters](#injection-with-parameters)
+- [Property injection](#property-injection)
 
 
 
@@ -88,3 +89,26 @@ For **Autofac**, follow the steps below.
    |         ...          |             ...             |             ...             |
 
 Enjoy injecting with parameters!
+
+
+
+### Property injection
+
+To use property injection, you just need to change the class which you want to use the type that injected, like the code below.
+
+```c#
+public class OutputHello
+{
+    [Inject]
+    public ISayHello SayHello { get; set; }
+    
+    public void Output(string name)
+    {
+        Console.WriteLine(SayHello.SayHello(name));
+    }
+}
+```
+
+The constructor isn't needed anymore, just need to add an `Inject ` Attribute on the property, one thing need to remeber, the property should be with **BOTH** `get` and `set`.
+
+One thing important, due to dotnet nuget [bug](https://github.com/NuGet/Home/issues/6091), you'll **need to add [AspectInjector](https://www.nuget.org/packages/AspectInjector) into your project** when you want to use property injection. They've promised to fix it soon.
