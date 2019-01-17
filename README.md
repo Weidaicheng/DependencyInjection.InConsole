@@ -52,7 +52,7 @@ You can check the example code in
 
 [example](https://github.com/Weidaicheng/DependencyInjection.InConsole/tree/master/example/)
 
-One thing needs to remember, **DO NOT** USE `Singletons.Provider` in .net core 2.2 app if you don't use Hooks to inject, or it would throw an exception.
+Since there **ISN'T** a provider if you use HOOKS to inject, the only choice you have is to use **Property Injection**, learn more from [Advance Features](AdvanceFeatures.md).
 
 ### Want something more
 
