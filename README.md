@@ -94,7 +94,7 @@ You can use Autofac by the following steps.
 - Other DI frameworks support
   - <del>Autofac</del>
   - ...
-- Property injection
+- <del>Property injection</del>
 - Performance optimization
 
 ### Cooperation
