@@ -18,9 +18,9 @@ namespace DependencyInjection.InConsole
         /// <returns></returns>
         private static IServiceProvider configureServices<T>(Action<T> inject) where T : Injector
         {
-            ITypeProvider typeProvider = new TypeProvider();
+            var typeFactory = new TypeFactory();
             var creator = new InstanceCreator<T>();
-            foreach (var type in creator.GetInjectorImpTypes(typeProvider))
+            foreach (var type in creator.GetInjectorImpTypes(typeFactory))
             {
                 if (creator.GetInstance(type, out var injector))
                     inject(injector);

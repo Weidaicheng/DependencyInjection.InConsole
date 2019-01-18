@@ -20,7 +20,11 @@ namespace DependencyInjection.InConsole.Types
         /// </summary>
         public TypeFactory()
         {
-            _types = new Lazy<IEnumerable<Type>>((() => new TypeProvider().GetTypes()));
+            _types = new Lazy<IEnumerable<Type>>((() =>
+            {
+                ITypeProvider provider = new TypeProvider();
+                return provider.GetTypes();
+            }));
         }
 
         /// <summary>
