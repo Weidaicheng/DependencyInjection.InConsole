@@ -15,11 +15,12 @@ namespace DependencyInjection.InConsole.Types
         /// <summary>
         /// Get types which implicit <see cref="T" />
         /// </summary>
+        /// <param name="typeFactory"><see cref="TypeFactory"/></param>
         /// <returns>Returns collection of <see cref="Type" /></returns>
-        public IEnumerable<Type> GetInjectorImpTypes(ITypeProvider typeProvider)
+        public IEnumerable<Type> GetInjectorImpTypes(TypeFactory typeFactory)
         {
             // Get an implication of IInject
-            var types = typeProvider.GetTypes();
+            var types = typeFactory.GetTypes();
             var implications = types.Where(t => !t.IsAbstract && typeof(T).IsAssignableFrom(t));
 
             #region verify implication

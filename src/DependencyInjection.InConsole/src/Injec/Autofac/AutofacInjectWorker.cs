@@ -15,9 +15,9 @@ namespace DependencyInjection.InConsole.Injec.Autofac
         /// <summary>
         /// Constructor
         /// </summary>
-        public AutofacInjectWorker()
+        public AutofacInjectWorker(TypeFactory typeFactory)
         {
-            _typeFactory = new TypeFactory();
+            _typeFactory = typeFactory;
         }
 
         /// <summary>

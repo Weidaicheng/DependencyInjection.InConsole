@@ -25,12 +25,16 @@ namespace DependencyInjection.InConsole.Test
             {
                 typeof(InstanceCreatorTest)
             });
+            var typeFactory = new TypeFactory
+            {
+                _types = new Lazy<IEnumerable<Type>>((() => stubTypeProvider.GetTypes()))
+            };
 
             var creator = new InstanceCreator<Injector>();
             
             Assert.Catch<NonImplicationException>(() =>
             {
-                creator.GetInjectorImpTypes(stubTypeProvider);
+                creator.GetInjectorImpTypes(typeFactory);
             }, $"Can't find one implication of {typeof(Injector).Name}.");
         }
 
@@ -42,9 +46,13 @@ namespace DependencyInjection.InConsole.Test
             {
                 typeof(Injector_1)
             });
+            var typeFactory = new TypeFactory
+            {
+                _types = new Lazy<IEnumerable<Type>>((() => stubTypeProvider.GetTypes()))
+            };
 
             var creator = new InstanceCreator<Injector>();
-            var result = creator.GetInjectorImpTypes(stubTypeProvider);
+            var result = creator.GetInjectorImpTypes(typeFactory);
 
             Assert.NotZero(result.Count());
             Assert.IsTrue(result.Count() == 1);

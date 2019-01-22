@@ -1,3 +1,5 @@
+using DependencyInjection.InConsole.Types;
+
 namespace DependencyInjection.InConsole.Injec.Autofac
 {
     /// <summary>
@@ -11,7 +13,7 @@ namespace DependencyInjection.InConsole.Injec.Autofac
         /// <returns></returns>
         public static AutofacInjectWorker GetWorker()
         {
-            return new AutofacInjectWorker();
+            return new AutofacInjectWorker(new TypeFactory());
         }
     }
 }
